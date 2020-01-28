@@ -1,13 +1,17 @@
 {
   "name": "first.react.app",
   "version": "1.0.0",
-  "description": "desc",
+  "description": "My very first react app",
+  "repository": "github:Stepami/1streactapp",
   "scripts": {
     "serve": "webpack-dev-server --mode development --open --hot --watch",
-    "build": "webpack --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode production"
   },
-  "author": "stephen",
+  "author": {
+    "name": "Stepami",
+    "email": "stepami@mail.ru",
+    "url": "https://github.com/Stepami"
+  },
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.8.3",
