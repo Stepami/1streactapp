@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Square from './Square.js';
+import Square from './Square.jsx';
 import '../styles/board.css';
 
-class Board extends Component {
+export default class Board extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -78,5 +78,3 @@ function calculateWinner(squares) {
     }
     return null;
 }
-
-export default Board;

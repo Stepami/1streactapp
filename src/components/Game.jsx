@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Board from './Board.js';
+import Board from './Board.jsx';
 import '../styles/game.css';
 
-class Game extends Component {
+export default class Game extends Component {
     render() {
         return (
             <div className="game">
@@ -17,5 +17,3 @@ class Game extends Component {
         );
     }
 }
-
-export default Game;
