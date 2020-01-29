@@ -1,4 +1,5 @@
 const path = require('path');
+const express = require("express");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -42,10 +43,12 @@ module.exports = {
     },
     devServer: {
         contentBase: [
-            path.resolve(__dirname, "dist"),
-            path.resolve(__dirname, "node_modules")
+            path.resolve(__dirname, "dist")
         ],
         publicPath: "/",
+        before: function (app, _server, _compiler) {
+            app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
+        },
         compress: true,
         port: 9000
     },
