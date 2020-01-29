@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Board from './Board.jsx';
 import '../styles/game.css';
 
