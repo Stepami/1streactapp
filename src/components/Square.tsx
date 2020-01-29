@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { FunctionComponent } from 'react';
 import '../styles/square.css';
 
 export interface ISquareProps {
@@ -6,7 +7,9 @@ export interface ISquareProps {
     onClick: () => void
 }
 
-export const Square = (props: ISquareProps) =>
+const Square: FunctionComponent<ISquareProps> = (props: ISquareProps) =>
     <button className="square" onClick={props.onClick}>
         {props.value}
     </button>;
+
+export default Square;

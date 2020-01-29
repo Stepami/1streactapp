@@ -1,9 +1,17 @@
-import React, { Component } from 'react';
-import { Square } from './Square.tsx';
+import * as React from 'react';
+import { Component } from 'react';
+import Square from './Square';
 import '../styles/board.css';
 
-export default class Board extends Component {
-    constructor(props) {
+type IBoardProps = {}
+
+export interface IBoardState {
+    squares: string[],
+    xIsNext: boolean
+}
+
+export default class Board extends Component<IBoardProps,IBoardState> {
+    constructor(props: IBoardProps) {
         super(props);
         this.state = {
             squares: Array(9).fill(null),
@@ -11,7 +19,7 @@ export default class Board extends Component {
         };
     }
 
-    handleClick(i) {
+    handleClick(i: number) {
         const squares = this.state.squares.slice();
         if (calculateWinner(squares) || squares[i]) {
             return;
@@ -23,7 +31,7 @@ export default class Board extends Component {
         });
     }
 
-    renderSquare(i) {
+    renderSquare(i: number) {
         return <Square value={this.state.squares[i]} onClick={() => this.handleClick(i)} />;
     }
 
@@ -59,7 +67,7 @@ export default class Board extends Component {
     }
 }
 
-function calculateWinner(squares) {
+function calculateWinner(squares: string[]) {
     const lines = [
         [0, 1, 2],
         [3, 4, 5],

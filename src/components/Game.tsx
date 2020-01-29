@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import Board from './Board.jsx';
+import * as React from 'react';
+import {Component} from 'react';
+import Board from './Board';
 import '../styles/game.css';
 
-export default class Game extends Component {
+export default class Game extends Component<{},{}> {
     render() {
         return (
             <div className="game">
