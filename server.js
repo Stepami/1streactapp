@@ -14,11 +14,18 @@ let app = express();
 app.use(express.static(DIST_DIR));
 
 //Send index.html when the user access the web
-app.get("*", function (_req, res) {
+app.get("/", (_req, res) => {
   res.sendFile(path.join(DIST_DIR, config.entryFile));
 });
 
-let server = app.listen(config.port, function() {
+app.get('/react/umd/react.production.min.js', (_req, res) => {
+  res.sendFile(__dirname + '/node_modules/react/umd/react.production.min.js');
+});
+
+app.get('/react-dom/umd/react-dom.production.min.js', (_req, res) => {
+  res.sendFile(__dirname + '/node_modules/react-dom/umd/react-dom.production.min.js');
+});
+
+let server = app.listen(config.port, () => {
     console.log('Listening on port %s', server.address().port);
 });
-//TODO: https://stackoverflow.com/questions/27464168/how-to-include-scripts-located-inside-the-node-modules-folder

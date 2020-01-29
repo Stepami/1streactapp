@@ -5,9 +5,8 @@ module.exports = {
     // Enable sourcemaps for debugging webpack's output.
     devtool: "source-map",
     resolve: {
-        //modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-        // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".ts", ".tsx", ".js", ".tsx"]
+        // Add '.ts' , '.tsx' and '.js' as resolvable extensions.
+        extensions: [".ts", ".tsx", ".js"]
     },
     entry: path.resolve(__dirname, 'src/index.js'),
     output: {
@@ -29,7 +28,7 @@ module.exports = {
                 loader: "source-map-loader"
             },
             {
-                test: /\.(js|jsx)$/,
+                test: /\.js(x?)$/,
                 include: path.resolve(__dirname, 'src'),
                 exclude: /node_modules/,
                 use: ['babel-loader']
@@ -43,7 +42,8 @@ module.exports = {
     },
     devServer: {
         contentBase: [
-            path.resolve(__dirname, "dist")
+            path.resolve(__dirname, "dist"),
+            path.resolve(__dirname, "node_modules")
         ],
         publicPath: "/",
         compress: true,
@@ -53,5 +53,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "src/index.html" // исходный html
         })
-    ]
+    ],
+    externals: {
+        "react": "React",
+        "react-dom": "ReactDOM"
+    }
 };
