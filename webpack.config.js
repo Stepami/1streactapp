@@ -9,7 +9,7 @@ module.exports = {
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [".ts", ".tsx", ".js", ".tsx"]
     },
-    entry: path.resolve(__dirname, 'src/index'),
+    entry: path.resolve(__dirname, 'src/index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'

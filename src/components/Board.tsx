@@ -1,16 +1,15 @@
-import * as React from 'react';
-import { Component } from 'react';
-import Square from './Square';
+import React, { Component } from 'react';
+import { Square } from './Square';
 import '../styles/board.css';
 
 type IBoardProps = {}
 
-export interface IBoardState {
+interface IBoardState {
     squares: string[],
     xIsNext: boolean
 }
 
-export default class Board extends Component<IBoardProps,IBoardState> {
+export default class Board extends Component<IBoardProps, IBoardState> {
     constructor(props: IBoardProps) {
         super(props);
         this.state = {
@@ -19,8 +18,8 @@ export default class Board extends Component<IBoardProps,IBoardState> {
         };
     }
 
-    handleClick(i: number) {
-        const squares = this.state.squares.slice();
+    handleClick(i: number): void {
+        const squares: string[] = this.state.squares.slice();
         if (calculateWinner(squares) || squares[i]) {
             return;
         }
@@ -31,13 +30,13 @@ export default class Board extends Component<IBoardProps,IBoardState> {
         });
     }
 
-    renderSquare(i: number) {
+    renderSquare(i: number): JSX.Element {
         return <Square value={this.state.squares[i]} onClick={() => this.handleClick(i)} />;
     }
 
-    render() {
-        const winner = calculateWinner(this.state.squares);
-        let status;
+    render(): JSX.Element {
+        const winner: string = calculateWinner(this.state.squares);
+        let status: string;
         if (winner) {
             status = 'Выиграл ' + winner;
         } else {
@@ -67,8 +66,8 @@ export default class Board extends Component<IBoardProps,IBoardState> {
     }
 }
 
-function calculateWinner(squares: string[]) {
-    const lines = [
+function calculateWinner(squares: string[]): string {
+    const lines: number[][] = [
         [0, 1, 2],
         [3, 4, 5],
         [6, 7, 8],

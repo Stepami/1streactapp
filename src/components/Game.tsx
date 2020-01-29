@@ -1,10 +1,13 @@
-import * as React from 'react';
-import {Component} from 'react';
+import React, { Component } from 'react';
 import Board from './Board';
 import '../styles/game.css';
 
-export default class Game extends Component<{},{}> {
-    render() {
+type IGameProps = {}
+
+type IGameState = {}
+
+export default class Game extends Component<IGameProps, IGameState> {
+    render(): JSX.Element {
         return (
             <div className="game">
                 <div className="game-board">
