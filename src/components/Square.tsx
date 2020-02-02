@@ -3,10 +3,11 @@ import '../styles/square.css';
 
 interface ISquareProps {
     value: string,
-    onClick: () => void
+    onClick: () => void,
+    won: boolean
 }
 
 export const Square: FunctionComponent<ISquareProps> = (props: ISquareProps) =>
-    <button className="square" onClick={props.onClick}>
+    <button style={{ background: props.won ? "green" : "white" }} className="square" onClick={props.onClick}>
         {props.value}
     </button>;
