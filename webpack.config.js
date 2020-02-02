@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require("express");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -53,6 +54,7 @@ module.exports = {
         port: 9000
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: "src/index.html" // исходный html
         })
